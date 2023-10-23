@@ -1,5 +1,6 @@
 package com.springboot.onetoone_api_mapping.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class Student {
     private int id;
     private String name;
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Aadhar aadharId;
 
     public Student() {

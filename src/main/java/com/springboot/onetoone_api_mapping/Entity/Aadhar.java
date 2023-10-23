@@ -1,5 +1,6 @@
 package com.springboot.onetoone_api_mapping.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,8 +13,12 @@ public class Aadhar {
     private String name;
     private String dob;
 
+    @OneToOne(mappedBy = "aadharId")
+    @JsonBackReference
+    private Student student;
     public Aadhar() {
     }
+
 
     public Aadhar(int addharId, String name, String dob) {
         this.addharId = addharId;
